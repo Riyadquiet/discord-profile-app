@@ -20,9 +20,6 @@
         <source src="https://files.catbox.moe/x6x4rr.mp4" type="video/mp4">
     </video>
 
-    <!-- NEW: Container for floating background icons -->
-    <div id="bg-icons-container"></div>
-
     <!-- Entry Overlay -->
     <div id="entry-overlay">
         <h1 class="entry-text">click to enter...</h1>
@@ -30,35 +27,44 @@
 
     <!-- Main Content -->
     <main id="main-content" class="relative z-10 w-full max-w-lg p-6 opacity-0">
-        <div class="glass-card rounded-3xl p-8 flex flex-col items-center text-center animate-fade-up delay-1">
+        
+        <!-- UPDATED: Added 'relative overflow-hidden' to the glass-card -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col items-center text-center animate-fade-up delay-1 relative overflow-hidden">
             
-            <div class="relative mb-6 flex items-center justify-center">
-                <img id="avatar" src="" alt="Avatar" class="avatar-profile">
-            </div>
-
-            <div class="flex items-center gap-2 mb-1">
-                <h1 id="display-name" class="text-3xl font-bold tracking-wide text-white drop-shadow-md">Loading...</h1>
-                <div id="server-tag-container" class="hidden flex items-center gap-1 bg-[#2b2d31] border border-[#1e1f22] rounded px-1.5 py-0.5">
-                    <img id="server-tag-icon" src="" alt="Tag Icon" class="w-4 h-4 object-contain hidden">
-                    <span id="server-tag-text" class="text-[10px] font-bold text-white uppercase tracking-wider"></span>
+            <!-- UPDATED: Icons container moved inside the glass card -->
+            <div id="bg-icons-container"></div>
+            
+            <!-- UPDATED: Content wrapped in relative z-10 to stay above icons -->
+            <div class="relative z-10 flex flex-col items-center w-full">
+                
+                <div class="relative mb-6 flex items-center justify-center">
+                    <img id="avatar" src="" alt="Avatar" class="avatar-profile">
                 </div>
-            </div>
-            
-            <p id="username" class="text-gray-300 font-medium mb-2">@loading...</p>
-            
-            <p id="bio" class="hover-bio text-sm text-gray-400 mb-4">ok habibi</p>
 
-            <!-- Small Discord Card -->
-            <div class="discord-card w-full border border-white/10 rounded-2xl p-4 flex items-center justify-start mb-2">
-                <div class="flex items-center gap-3">
-                    <img id="small-avatar" src="" class="w-10 h-10 rounded-full border border-white/20 transition-all duration-300">
-                    <div class="text-left">
-                        <p id="small-username" class="text-sm font-semibold text-white transition-colors duration-300">loading...</p>
-                        <p class="text-xs text-gray-400">last seen recently</p>
+                <div class="flex items-center gap-2 mb-1">
+                    <h1 id="display-name" class="text-3xl font-bold tracking-wide text-white drop-shadow-md">Loading...</h1>
+                    <div id="server-tag-container" class="hidden flex items-center gap-1 bg-[#2b2d31] border border-[#1e1f22] rounded px-1.5 py-0.5">
+                        <img id="server-tag-icon" src="" alt="Tag Icon" class="w-4 h-4 object-contain hidden">
+                        <span id="server-tag-text" class="text-[10px] font-bold text-white uppercase tracking-wider"></span>
                     </div>
                 </div>
-            </div>
+                
+                <p id="username" class="text-gray-300 font-medium mb-2">@loading...</p>
+                
+                <p id="bio" class="hover-bio text-sm text-gray-400 mb-4">ok habibi</p>
 
+                <!-- Small Discord Card -->
+                <div class="discord-card w-full border border-white/10 rounded-2xl p-4 flex items-center justify-start mb-2">
+                    <div class="flex items-center gap-3">
+                        <img id="small-avatar" src="" class="w-10 h-10 rounded-full border border-white/20 transition-all duration-300">
+                        <div class="text-left">
+                            <p id="small-username" class="text-sm font-semibold text-white transition-colors duration-300">loading...</p>
+                            <p class="text-xs text-gray-400">last seen recently</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <!-- Audio Player -->
