@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex items-center justify-center">
+
+    <!-- Background Video (تم تحديث الرابط) -->
+    <video autoplay muted loop playsinline id="bg-video" class="bg-video">
+        <source src="https://files.catbox.moe/x6x4rr.mp4" type="video/mp4">
+    </video>
+
+    <!-- Entry Overlay -->
+    <div id="entry-overlay">
+        <h1 class="entry-text">click to enter...</h1>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="relative z-10 w-full max-w-lg p-6 opacity-0">
+        <div class="glass-card rounded-3xl p-8 flex flex-col items-center text-center animate-fade-up delay-1">
+            
+            <div class="relative mb-6 flex items-center justify-center">
+                <img id="avatar" src="" alt="Avatar" class="avatar-profile">
+            </div>
+
+            <div class="flex items-center gap-2 mb-1">
+                <h1 id="display-name" class="text-3xl font-bold tracking-wide text-white drop-shadow-md">Loading...</h1>
+                <div id="server-tag-container" class="hidden flex items-center gap-1 bg-[#2b2d31] border border-[#1e1f22] rounded px-1.5 py-0.5">
+                    <img id="server-tag-icon" src="" alt="Tag Icon" class="w-4 h-4 object-contain hidden">
+                    <span id="server-tag-text" class="text-[10px] font-bold text-white uppercase tracking-wider"></span>
+                </div>
+            </div>
+            
+            <p id="username" class="text-gray-300 font-medium mb-2">@loading...</p>
+            
+            <p id="bio" class="hover-bio text-sm text-gray-400 mb-4">ok habibi</p>
+
+            <!-- Small Discord Card -->
+            <div class="discord-card w-full border border-white/10 rounded-2xl p-4 flex items-center justify-start mb-2">
+                <div class="flex items-center gap-3">
+                    <img id="small-avatar" src="" class="w-10 h-10 rounded-full border border-white/20 transition-all duration-300">
+                    <div class="text-left">
+                        <p id="small-username" class="text-sm font-semibold text-white transition-colors duration-300">loading...</p>
+                        <p class="text-xs text-gray-400">last seen recently</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Audio Player -->
+        <div class="glass-card audio-player mt-4 rounded-2xl p-4 flex items-center gap-4 animate-fade-up delay-3">
+            <div class="music-icon w-12 h-12 rounded-xl flex items-center justify-center text-xl text-purple-400">
+                <i class="fa-solid fa-music"></i>
+            </div>
+            
+            <div class="flex-1 flex flex-col justify-center">
+                <p class="text-sm font-semibold text-white mb-1">SCH - Bénéfice</p>
+                <div class="flex items-center gap-3">
+                    <span id="current-time" class="text-[10px] text-gray-400 w-8 text-right">0:00</span>
+                    <input type="range" id="seek-slider" value="0" max="100" class="custom-slider">
+                    <span id="duration" class="text-[10px] text-gray-400 w-8">0:00</span>
+                </div>
+            </div>
+            
+            <button id="play-btn" class="play-btn w-10 h-10 rounded-full flex items-center justify-center text-white">
+                <i class="fa-solid fa-play"></i>
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Audio Element (تم تحديث الرابط وإزالة crossorigin) -->
+    <audio id="audio" src="https://files.catbox.moe/ct9yua.mp3" loop></audio>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: white;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    filter: blur(15px) brightness(0.4);
+    transition: filter 1.5s ease;
+    z-index: -1;
+}
+
+.bg-video.unblur {
+    filter: blur(4px) brightness(0.6);
+}
+
+#entry-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 50;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+#entry-overlay.hidden-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.entry-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   Profile Picture Animation
+   ========================================== */
+.avatar-profile {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    position: relative;
+}
+
+.avatar-profile:hover {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 0 35px rgba(168, 85, 247, 0.8), 
+                0 0 15px rgba(168, 85, 247, 0.5);
+    border-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+/* ==========================================
+   "ok habibi" Hover Animation
+   ========================================== */
+.hover-bio {
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.hover-bio:hover {
+    transform: scale(1.2) translateY(-3px);
+    color: #a855f7;
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+    font-weight: 600;
+}
+
+/* ==========================================
+   NEW: Animated Small Discord Card
+   ========================================== */
+.discord-card {
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.discord-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.03) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.5);
+}
+
+.discord-card:hover #small-avatar {
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.discord-card:hover #small-username {
+    color: #a855f7;
+}
+
+/* ==========================================
+   Smooth Audio Player Styling
+   ========================================== */
+.audio-player {
+    transition: all 0.3s ease;
+}
+.audio-player:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px rgba(168, 85, 247, 0.15);
+}
+
+.music-icon {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.1));
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    transition: all 0.3s ease;
+}
+.audio-player:hover .music-icon {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.play-btn {
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.play-btn:hover {
+    background: rgba(168, 85, 247, 0.8);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+}
+.play-btn:active {
+    transform: scale(0.95);
+}
+
+/* Custom Slider (Progress Bar) */
+.custom-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #4b5563;
+    outline: none;
+    transition: background 0.2s ease;
+    cursor: pointer;
+}
+
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.custom-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 1);
+}
+
+.custom-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+    transition: transform 0.2s ease;
+}
+.custom-slider::-moz-range-thumb:hover {
+    transform: scale(1.3);
+}
+
+/* ========================================== */
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
