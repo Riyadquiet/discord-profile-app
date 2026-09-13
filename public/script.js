@@ -43,7 +43,7 @@ async function fetchDiscordProfile() {
 fetchDiscordProfile();
 
 // ==========================================
-// 2. GENERATE FLOATING BACKGROUND ICONS
+// 2. GENERATE FLOATING BACKGROUND ICONS (INSIDE CARD)
 // ==========================================
 const devIcons = [
     'fa-brands fa-js', 'fa-brands fa-react', 'fa-brands fa-python', 
@@ -56,8 +56,8 @@ const devIcons = [
 const container = document.getElementById('bg-icons-container');
 
 function generateBackgroundIcons() {
-    // Change this number to add more or fewer icons (e.g., 20, 40, 60)
-    const numberOfIcons = 40; 
+    // Reduced number of icons to 25 because the area is now smaller
+    const numberOfIcons = 25; 
 
     for (let i = 0; i < numberOfIcons; i++) {
         const icon = document.createElement('i');
@@ -66,12 +66,12 @@ function generateBackgroundIcons() {
         const randomIcon = devIcons[Math.floor(Math.random() * devIcons.length)];
         icon.className = `${randomIcon} bg-icon`;
         
-        // Random Position (0% to 100%)
+        // Random Position within the card (0% to 100%)
         icon.style.top = `${Math.random() * 100}%`;
         icon.style.left = `${Math.random() * 100}%`;
         
-        // Random Size (20px to 60px)
-        const size = Math.random() * 40 + 20;
+        // Random Size (15px to 45px) - Slightly smaller to fit the card
+        const size = Math.random() * 30 + 15;
         icon.style.fontSize = `${size}px`;
         
         // Random Rotation (-180deg to 180deg)
